@@ -1,15 +1,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXIM Navigator</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EXIM Navigator – Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url=https://opal.google/?flow=YOUR_FLOW_ID&shared&mode=app" />
   <style>
-    html,body{height:100%;margin:0;background:#0b1727;color:white;font-family:sans-serif;}
-    iframe{width:100%;height:100%;border:0;}
+    html,body { height:100%; margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial; background:#0b1727; color:#e6edf6; }
+    .wrap { height:100%; display:grid; place-items:center; text-align:center; padding:24px; }
+    a.btn { display:inline-block; margin-top:12px; padding:10px 14px; border-radius:10px; background:#2a72ff; color:#fff; text-decoration:none; }
+    .tips { opacity:.8; font-size:14px; margin-top:10px; }
   </style>
+  <script>
+    (function () {
+      var OPAL_URL = "https://opal.google/?flow=drive:/1TF-GH-2cCc7wlhgywpKprSq3ul8LBg0m&shared&mode=app";
+      // If this ever loads in an iframe, break out so Opal auth works
+      if (window.top !== window.self) {
+        try { window.top.location = OPAL_URL; } catch (e) { window.location = OPAL_URL; }
+      } else {
+        // Primary redirect (in case meta-refresh is blocked)
+        window.location.replace(OPAL_URL);
+        // Fallback after 1.5s
+        setTimeout(function(){ window.location.href = OPAL_URL; }, 1500);
+      }
+    })();
+  </script>
 </head>
 <body>
-  <iframe src="https://opal.google/?flow=drive:/1TF-GH-2cCc7wlhgywpKprSq3ul8LBg0m&shared&mode=app"></iframe>
+  <div class="wrap">
+    <div>
+      <h1>Redirecting to Opal…</h1>
+      <p>Please sign in / sign up to continue. You’ll be taken to the app automatically.</p>
+      <a class="btn" href="https://opal.google/?flow=YOUR_FLOW_ID&shared&mode=app">Open EXIM Navigator</a>
+      <div class="tips">If the page doesn’t move, click the button above or try an incognito window.</div>
+    </div>
+  </div>
 </body>
 </html>
+
